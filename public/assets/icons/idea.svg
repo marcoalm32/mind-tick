@@ -1,0 +1,24 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ideaIconTitle ideaIconDesc">
+  <title id="ideaIconTitle">Idea icon</title>
+  <desc id="ideaIconDesc">A rounded light bulb icon representing an idea.</desc>
+  <defs>
+    <linearGradient id="ideaGlow" x1="24" y1="20" x2="106" y2="104" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#D8F1F5"/>
+      <stop offset="1" stop-color="#8FD6CF"/>
+    </linearGradient>
+    <linearGradient id="ideaBulb" x1="44" y1="36" x2="82" y2="96" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1F8AA5"/>
+      <stop offset="1" stop-color="#166D84"/>
+    </linearGradient>
+  </defs>
+  <circle cx="64" cy="64" r="54" fill="url(#ideaGlow)"/>
+  <path d="M64 30C48.536 30 36 42.536 36 58C36 67.504 40.744 75.9 48.002 80.967C50.71 82.857 52.5 85.896 52.5 89.198V91C52.5 92.657 53.843 94 55.5 94H72.5C74.157 94 75.5 92.657 75.5 91V89.198C75.5 85.892 77.3 82.847 80.013 80.951C87.264 75.882 92 67.492 92 58C92 42.536 79.464 30 64 30Z" fill="#F7FBFC" stroke="url(#ideaBulb)" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M54 100H74" stroke="#166D84" stroke-width="6" stroke-linecap="round"/>
+  <path d="M57 110H71" stroke="#166D84" stroke-width="6" stroke-linecap="round"/>
+  <path d="M56 59C56 54.582 59.582 51 64 51" stroke="#8FD6CF" stroke-width="5" stroke-linecap="round"/>
+  <path d="M64 17V27" stroke="#1F8AA5" stroke-width="5" stroke-linecap="round"/>
+  <path d="M29 31L36 38" stroke="#1F8AA5" stroke-width="5" stroke-linecap="round"/>
+  <path d="M99 31L92 38" stroke="#1F8AA5" stroke-width="5" stroke-linecap="round"/>
+  <path d="M17 64H27" stroke="#1F8AA5" stroke-width="5" stroke-linecap="round"/>
+  <path d="M101 64H111" stroke="#1F8AA5" stroke-width="5" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,17 @@
+<nav class="navbar">
+    <ul class="nav-list">
+        @for (route of routeList; track route.path) {
+            <li class="nav-list-item">
+                <a
+                    class="nav-link text-label"
+                    [routerLink]="route.path"
+                    routerLinkActive="active"
+                    [routerLinkActiveOptions]="{ exact: route.path === '/' }"
+                >
+                    <img [src]="'assets/icons/' + route.icon" alt="{{ route.name }} icon" class="icon">
+                    <p class="text-nav">{{ route.name }}</p>
+                </a>
+            </li>
+        }
+    </ul>
+</nav>

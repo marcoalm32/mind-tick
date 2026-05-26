@@ -1,0 +1,21 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="userAvatarTitle userAvatarDesc">
+  <title id="userAvatarTitle">User avatar placeholder</title>
+  <desc id="userAvatarDesc">A circular placeholder avatar for a user profile photo.</desc>
+  <defs>
+    <radialGradient id="avatarBackground" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(42 36) rotate(46.2) scale(74.5)">
+      <stop offset="0" stop-color="#CFC7BC"/>
+      <stop offset="0.48" stop-color="#A59380"/>
+      <stop offset="1" stop-color="#6F6255"/>
+    </radialGradient>
+    <linearGradient id="avatarHighlight" x1="32" y1="30" x2="93" y2="97" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F7F1E8" stop-opacity="0.82"/>
+      <stop offset="1" stop-color="#F7F1E8" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <circle cx="64" cy="64" r="54" fill="url(#avatarBackground)"/>
+  <circle cx="64" cy="64" r="54" fill="url(#avatarHighlight)"/>
+  <circle cx="64" cy="50" r="16" fill="#F5E7D8"/>
+  <path d="M35 98C38.203 81.643 49.444 72 64 72C78.556 72 89.797 81.643 93 98" fill="#F5E7D8"/>
+  <path d="M48 47C48 39.268 54.268 33 62 33H66C73.732 33 80 39.268 80 47V52C80 44.268 73.732 38 66 38H62C54.268 38 48 44.268 48 52V47Z" fill="#5C4A3C"/>
+  <path d="M46 98C48.288 85.169 55.642 78 64 78C72.358 78 79.712 85.169 82 98" fill="#8C7766" fill-opacity="0.32"/>
+</svg>

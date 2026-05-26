@@ -1,0 +1,13 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="settingsTitle settingsDesc">
+  <title id="settingsTitle">Settings icon</title>
+  <desc id="settingsDesc">A simple gear icon for settings.</desc>
+  <path d="M12 8.5C10.07 8.5 8.5 10.07 8.5 12C8.5 13.93 10.07 15.5 12 15.5C13.93 15.5 15.5 13.93 15.5 12C15.5 10.07 13.93 8.5 12 8.5Z" stroke="#66727A" stroke-width="1.6"/>
+  <path d="M12 4.25V6" stroke="#66727A" stroke-width="1.6" stroke-linecap="round"/>
+  <path d="M12 18V19.75" stroke="#66727A" stroke-width="1.6" stroke-linecap="round"/>
+  <path d="M19.75 12H18" stroke="#66727A" stroke-width="1.6" stroke-linecap="round"/>
+  <path d="M6 12H4.25" stroke="#66727A" stroke-width="1.6" stroke-linecap="round"/>
+  <path d="M17.48 6.52L16.24 7.76" stroke="#66727A" stroke-width="1.6" stroke-linecap="round"/>
+  <path d="M7.76 16.24L6.52 17.48" stroke="#66727A" stroke-width="1.6" stroke-linecap="round"/>
+  <path d="M17.48 17.48L16.24 16.24" stroke="#66727A" stroke-width="1.6" stroke-linecap="round"/>
+  <path d="M7.76 7.76L6.52 6.52" stroke="#66727A" stroke-width="1.6" stroke-linecap="round"/>
+</svg>

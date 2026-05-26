@@ -1,0 +1,12 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="bellIconTitle bellIconDesc">
+  <title id="bellIconTitle">Notification bell icon</title>
+  <desc id="bellIconDesc">A rounded bell icon representing notifications.</desc>
+  <path d="M64 32C50.469 32 39.5 42.969 39.5 56.5V66.7C39.5 72.791 37.269 78.67 33.23 83.23L29.92 86.97C28.158 88.962 29.572 92 32.232 92H95.768C98.428 92 99.842 88.962 98.08 86.97L94.77 83.23C90.731 78.67 88.5 72.791 88.5 66.7V56.5C88.5 42.969 77.531 32 64 32Z" fill="#7B858C"/>
+  <path d="M56 97C57.507 102.182 60.922 105 64 105C67.078 105 70.493 102.182 72 97" stroke="#7B858C" stroke-width="6" stroke-linecap="round"/>
+  <path d="M64 23V31" stroke="#A9B3B8" stroke-width="5" stroke-linecap="round"/>
+  <path d="M51 56C51 48.82 56.82 43 64 43" stroke="#E7ECEE" stroke-width="5" stroke-linecap="round"/>
+  <path d="M29 31L36 38" stroke="#A9B3B8" stroke-width="5" stroke-linecap="round"/>
+  <path d="M99 31L92 38" stroke="#A9B3B8" stroke-width="5" stroke-linecap="round"/>
+  <path d="M17 64H27" stroke="#A9B3B8" stroke-width="5" stroke-linecap="round"/>
+  <path d="M101 64H111" stroke="#A9B3B8" stroke-width="5" stroke-linecap="round"/>
+</svg>

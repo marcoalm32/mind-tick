@@ -1,0 +1,39 @@
+.header {
+    background-color: var(--color-surface);
+    padding: .2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &__logo {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: .2rem 1rem;
+        border: 2px solid rgba(123, 133, 140, 0.35);
+        border-radius: var(--radius-lg);
+
+        img {
+            width: 4rem;
+            height: 4rem;
+        }
+    }
+
+    &__actions {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        &-notify {
+            width: 3rem;
+            height: 3rem;
+            cursor: pointer;
+        }
+
+        &-user {
+            width: rem;
+            height: 3.5rem;
+            cursor: pointer;
+        }
+    }
+}
