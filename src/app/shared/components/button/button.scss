@@ -1,0 +1,62 @@
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: var(--font-weight-semibold);
+    border: none;
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+    &.btn-primary {
+        --btn-outlined-color: var(--color-primary-strong);
+        background-color: var(--color-primary);
+        color: var(--color-surface);
+    }
+
+    &.btn-secondary {
+        --btn-outlined-color: var(--color-primary-soft);
+        background-color: var(--color-primary-soft);
+        color: var(--color-primary-strong);
+    }
+
+    &.btn-danger {
+        --btn-outlined-color: var(--color-danger);
+        background-color: var(--color-danger);
+        color: var(--color-text-inverse);
+    }
+
+    &.btn-very-small {
+        padding: 0.15rem 0.35rem;
+        font-size: 11px;
+    }
+
+    &.btn-small {
+        padding: 0.25rem 0.5rem;
+        font-size: 13px;
+    }
+
+    &.btn-medium {
+        padding: 1rem 2rem;
+        font-size: var(--font-size-body);
+    }
+
+    &.btn-large {
+        padding: 2rem 4rem;
+        font-size: var(--font-size-card-title);
+    }
+
+    &.btn-outlined {
+        background-color: transparent;
+        color: var(--btn-outlined-color, currentColor);
+        border: 2px solid var(--btn-outlined-color, currentColor);
+    }
+
+    &:disabled {
+        background-color: var(--color-border);
+        color: var(--color-text-muted);
+        cursor: not-allowed;
+    }
+}
