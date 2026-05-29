@@ -1,0 +1,7 @@
+<div class="form-container" [style.width]="size() + '%'">
+    <h1 class="form-title" [style.text-align]="titleAlign()">{{ title() }}</h1>
+    @if (subtitle()) {
+        <p class="text-subtitle" [style.text-align]="subtitleAlign()">{{ subtitle() }}</p>
+    }
+    <ng-content></ng-content>
+</div>

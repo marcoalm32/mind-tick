@@ -1,1 +1,22 @@
-<p>field works!</p>
+<mat-form-field 
+  appearance="outline" 
+  class="field"
+  [style.width.%]="size()">
+    <mat-label>{{ label() }}</mat-label>
+    @if (icon()) {
+      <mat-icon matPrefix>{{ icon() }}</mat-icon>
+    }
+    <input
+      matInput
+      [type]="type()"
+      [placeholder]="placeholder()"
+      [disabled]="disabled()"
+      [value]="value()"
+      (input)="onInput($event)"
+    />
+</mat-form-field>
+@if (error()) {
+  <div class="font-small field-error text-error">
+    <p>{{ error() }}</p>
+  </div>
+}

@@ -1,1 +1,55 @@
-<p>login works!</p>
+<div class="login">
+    <app-form
+        [title]="'Welcome Back!'"
+        [subtitle]="'Please enter your credentials to continue.'"
+        [size]="100"
+        [titleAlign]="'center'"
+        [subtitleAlign]="'center'"
+    >
+        <form class="row">
+            <div class="col-12">
+                <app-field
+                    [label]="'Email'"
+                    [type]="'email'"
+                    [placeholder]="'Enter your email'"
+                    [value]="loginForm.email().value()"
+                    (valueChange)="onEmailChange($event)"
+                    [error]="emailError()"
+                    [size]="100"
+                    [icon]="'alternate_email'"
+                ></app-field>
+            </div>
+            <div class="col-12">
+                <app-field
+                    [label]="'Password'"
+                    [type]="'password'"
+                    [placeholder]="'Enter your password'"
+                    [value]="loginForm.password().value()"
+                    (valueChange)="onPasswordChange($event)"
+                    [error]="passwordError()"
+                    [icon]="'key'"
+                    [size]="100"
+                ></app-field>
+            </div>
+            <div class="col-12">
+                <app-button
+                    [label]="'Sign in'"
+                    [size]="'medium'"
+                    (click)="save()"
+                    [width]="100"
+                    [disabled]="!loginForm().valid()"
+                ></app-button>
+            </div>
+            <div class="col-12 d-flex justify-center">
+                <span class="text-body-strong">New User?
+                    <button 
+                        type="button"
+                        class="btn-new-account text-body" 
+                        (click)="createAccount.emit(1)">
+                        Create an account
+                    </button>
+                </span>
+            </div>
+        </form>
+    </app-form>
+</div>

@@ -1,1 +1,17 @@
-<p>dropdown works!</p>
+<mat-form-field
+    [appearance]="appearance()"
+    class="w-100"
+>
+    <mat-label>{{ label() }}</mat-label>
+    <mat-select
+        [placeholder]="placeholder()"
+        [disabled]="disabled()"
+        [multiple]="multiple()"
+    >
+        @for (option of options(); track option.value) {
+        <mat-option [value]="option.value">
+            {{ option.label }}
+        </mat-option>
+        }
+    </mat-select>
+</mat-form-field>

@@ -1,9 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { Appearance } from '../../types/appearance';
+import { OptionsDropdown } from '../../models/options-dropdown.model';
 
 @Component({
   selector: 'app-dropdown',
-  imports: [],
+  imports: [
+    MatFormFieldModule,
+    MatSelectModule,
+  ],
   templateUrl: './dropdown.html',
   styleUrl: './dropdown.scss',
 })
-export class Dropdown {}
+export class Dropdown {
+
+  appearance = input<Appearance>('outline');
+  label = input<string>('');
+  disabled = input<boolean>(false);
+  placeholder = input<string>('');
+  options = input<OptionsDropdown[]>([]);
+  multiple = input<boolean>(false);
+}

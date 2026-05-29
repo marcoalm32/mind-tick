@@ -1,0 +1,16 @@
+.field {
+    display: flex;
+    flex-direction: column;
+
+    &__label {
+        font-weight: var(--font-weight-semibold);
+        margin-bottom: 0.25rem;
+    }
+
+    
+}
+
+.field-error {
+    margin-top: -1.25rem;
+    font-weight: var(--font-weight-semibold);
+}
