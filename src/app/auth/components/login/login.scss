@@ -1,0 +1,12 @@
+.login {
+    width: 100%;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+.btn-new-account {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid var(--color-primary);
+    color: var(--color-primary);
+}

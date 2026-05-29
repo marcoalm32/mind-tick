@@ -1,11 +1,49 @@
+// Include theming for Angular Material with `mat.theme()`.
+// This Sass mixin will define CSS variables that are used for styling Angular Material
+// components according to the Material 3 design spec.
+// Learn more about theming and how to use it for your application's
+// custom components at https://material.angular.dev/guide/theming
+@use '@angular/material' as mat;
+
+html {
+  height: 100%;
+  @include mat.theme(
+    (
+      color: (
+        primary: mat.$azure-palette,
+        tertiary: mat.$blue-palette,
+      ),
+      typography: Roboto,
+      density: 0,
+    )
+  );
+}
+
+body {
+  // Default the application to a light color theme. This can be changed to
+  // `dark` to enable the dark color theme, or to `light dark` to defer to the
+  // user's system settings.
+  color-scheme: light;
+
+  // Set a default background, font and text colors for the application using
+  // Angular Material's system-level CSS variables. Learn more about these
+  // variables at https://material.angular.dev/guide/system-variables
+  background-color: var(--mat-sys-surface);
+  color: var(--mat-sys-on-surface);
+  font: var(--mat-sys-body-medium);
+
+  // Reset the user agent margin.
+  margin: 0;
+  height: 100%;
+}
 /* Global design tokens */
 
 :root {
-	color-scheme: light;
+  color-scheme: light;
 
-	/* Typography */
-	--font-family-base: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-	--font-family-heading: "Segoe UI Semibold", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  /* Typography */
+  --font-family-base: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-family-heading: 'Segoe UI Semibold', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   --font-size-display: 2.25rem;
   --font-size-page-title: 1.75rem;
   --font-size-section-title: 1.25rem;
@@ -22,74 +60,79 @@
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
 
-	/* Brand */
-	--color-primary: #1f8aa5;
-	--color-primary-strong: #166d84;
-	--color-primary-soft: #d8f1f5;
-	--color-accent: #8fd6cf;
+  /* Brand */
+  --color-primary: #1d8ea8;
+  --color-primary-strong: #156e84;
+  --color-primary-soft: #d8eef4;
+  --color-accent: #8dcdd8;
+  --color-secondary: #2a3d4f;
+  --color-secondary-strong: #1f3040;
+  --color-secondary-soft: #e9eef3;
+  --color-on-primary: #ffffff;
+  --color-on-secondary: #ffffff;
 
-	/* Neutral */
-	--color-background: #f4f7f8;
-	--color-surface: #ffffff;
-	--color-surface-muted: #f7fbfc;
-	--color-border: #d7e3e7;
-	--color-border-strong: #b7c9cf;
-	--color-text: #18242b;
-	--color-text-muted: #5f7078;
-	--color-text-inverse: #ffffff;
+  /* Neutral */
+  --color-background: #f4f7f8;
+  --color-surface: #ffffff;
+  --color-surface-muted: #f7fbfc;
+  --color-border: #d7e3e7;
+  --color-border-strong: #b7c9cf;
+  --color-text: #18242b;
+  --color-text-muted: #5f7078;
+  --color-text-inverse: #ffffff;
 
-	/* Feedback */
-	--color-success: #69b578;
-	--color-warning: #f0b85a;
-	--color-danger: #de6b70;
-	--color-info: #5aa7c7;
+  /* Feedback */
+  --color-success: #69b578;
+  --color-warning: #f0b85a;
+  --color-danger: #de6b70;
+  --color-info: #5aa7c7;
 
-	/* Effects */
-	--shadow-sm: 0 8px 20px rgba(24, 36, 43, 0.08);
-	--shadow-md: 0 16px 40px rgba(24, 36, 43, 0.12);
-	--shadow-lg: 0 24px 64px rgba(24, 36, 43, 0.16);
-	--gradient-page: linear-gradient(135deg, #f6fbfd 0%, #dff3f2 48%, #fdfefe 100%);
+  /* Effects */
+  --shadow-sm: 0 8px 20px rgba(24, 36, 43, 0.08);
+  --shadow-md: 0 16px 40px rgba(24, 36, 43, 0.12);
+  --shadow-lg: 0 24px 64px rgba(24, 36, 43, 0.16);
+  --gradient-page: linear-gradient(135deg, #f6fbfd 0%, #dff3f2 48%, #fdfefe 100%);
 
-	/* Radius */
-	--radius-sm: 0.5rem;
-	--radius-md: 0.875rem;
-	--radius-lg: 1.25rem;
-	--radius-xl: 1.75rem;
-	--radius-pill: 999px;
+  /* Radius */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.875rem;
+  --radius-lg: 1.25rem;
+  --radius-xl: 1.75rem;
+  --radius-pill: 999px;
 
-	/* Spacing */
-	--space-1: 0.25rem;
-	--space-2: 0.5rem;
-	--space-3: 0.75rem;
-	--space-4: 1rem;
-	--space-5: 1.25rem;
-	--space-6: 1.5rem;
-	--space-8: 2rem;
-	--space-10: 2.5rem;
-	--space-12: 3rem;
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
 
-	/* Motion */
-	--transition-base: 180ms ease;
+  /* Motion */
+  --transition-base: 180ms ease;
 }
 
 html,
 body {
-	min-height: 100%;
+  min-height: 100%;
 }
 
 body {
-	margin: 0;
-	font-family: var(--font-family-base);
+  margin: 0;
+  font-family: var(--font-family-base);
   font-size: var(--font-size-body);
   line-height: var(--line-height-base);
-	color: var(--color-text);
-	background: var(--gradient-page);
+  color: var(--color-text);
+  background: var(--gradient-page);
 }
 
 *,
 *::before,
 *::after {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .text-display {
@@ -119,6 +162,13 @@ body {
   font-family: var(--font-family-heading);
   font-size: var(--font-size-card-title);
   font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-snug);
+}
+
+.text-subtitle {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-medium);
   line-height: var(--line-height-snug);
 }
 
@@ -175,6 +225,11 @@ body {
 
 .text-primary {
   color: var(--color-primary-strong);
+}
+
+.text-error {
+  color: var(--color-danger);
+  font-weight: var(--font-weight-semibold);
 }
 
 .row {
@@ -385,4 +440,98 @@ body {
 
 .align-end {
   align-items: flex-end;
+}
+
+.mat-mdc-text-field-wrapper {
+  background-color: var(--color-primary-soft) !important;
+  border-radius: var(--radius-md) !important;
+}
+
+.mat-mdc-form-field {
+  --mdc-outlined-text-field-label-text-color: var(--color-text-muted);
+  --mdc-outlined-text-field-hover-label-text-color: var(--color-text-muted);
+  --mdc-outlined-text-field-focus-label-text-color: var(--color-primary-strong);
+  --mdc-outlined-text-field-outline-color: var(--color-primary-soft);
+  --mdc-outlined-text-field-hover-outline-color: var(--color-primary);
+  --mdc-outlined-text-field-focus-outline-color: var(--color-primary);
+}
+
+.mat-mdc-form-field-focus-overlay {
+  background-color: transparent !important;
+}
+
+.mat-mdc-form-field .mdc-notched-outline__leading,
+.mat-mdc-form-field .mdc-notched-outline__notch,
+.mat-mdc-form-field .mdc-notched-outline__trailing {
+  border-color: var(--color-border-strong) !important;
+  border-width: 1px !important;
+}
+
+.mat-mdc-form-field .mdc-notched-outline__leading {
+  border-top-left-radius: var(--radius-md) !important;
+  border-bottom-left-radius: var(--radius-md) !important;
+}
+
+.mat-mdc-form-field .mdc-notched-outline__trailing {
+  border-top-right-radius: var(--radius-md) !important;
+  border-bottom-right-radius: var(--radius-md) !important;
+}
+
+.mat-mdc-form-field .mdc-notched-outline__notch {
+  border-radius: 0 !important;
+}
+
+.mat-mdc-form-field.mat-focused .mdc-notched-outline__leading,
+.mat-mdc-form-field.mat-focused .mdc-notched-outline__notch,
+.mat-mdc-form-field.mat-focused .mdc-notched-outline__trailing {
+  border-color: var(--color-primary) !important;
+}
+
+.mat-mdc-form-field .mdc-text-field__input,
+.mat-mdc-form-field .mat-mdc-select-value,
+.mat-mdc-form-field .mat-mdc-select-placeholder {
+  color: var(--color-text) !important;
+}
+
+.mat-mdc-form-field .mat-mdc-select-arrow,
+.mat-mdc-form-field .mdc-floating-label {
+  color: var(--color-text-muted) !important;
+}
+
+.mat-mdc-form-field.mat-focused .mdc-floating-label {
+  color: var(--color-primary-strong) !important;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-primary) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--color-primary);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-primary-strong) !important;
+}
+
+.scroll-hidden {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scroll-hidden::-webkit-scrollbar {
+  display: none;
 }

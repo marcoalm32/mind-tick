@@ -1,1 +1,10 @@
-<p>auth works!</p>
+<div class="auth">
+    <mat-tab-group class="auth__tabs" [selectedIndex]="tabIndex" (selectedIndexChange)="onTabChange($event)">
+        <mat-tab label="Login">
+            <app-login ngSkipHydration (createAccount)="tabIndex = 1"></app-login>
+        </mat-tab>
+        <mat-tab label="Register">
+            <app-register></app-register>
+        </mat-tab>
+    </mat-tab-group>
+</div>

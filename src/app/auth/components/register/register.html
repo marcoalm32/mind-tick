@@ -1,1 +1,57 @@
-<p>register works!</p>
+<div class="register">
+    <app-form
+        [title]="'Create an Account'"
+        [subtitle]="'Join us today! It takes only a few steps.'"
+        [size]="100"
+        [titleAlign]="'center'"
+        [subtitleAlign]="'center'"
+    >
+        <form class="row">
+            <div class="col-12">
+                <app-field
+                    [label]="'Email'"
+                    [type]="'email'"
+                    [icon]="'alternate_email'"
+                    [placeholder]="'Enter your email'"
+                    [value]="registerForm.email().value()"
+                    (valueChange)="onEmailChange($event)"
+                    [error]="emailError()"
+                    [size]="100"
+                ></app-field>
+            </div>
+            <div class="col-12">
+                <app-field
+                    [label]="'Password'"
+                    [type]="'password'"
+                    [icon]="'key'"
+                    [placeholder]="'Create a password'"
+                    [value]="registerForm.password().value()"
+                    (valueChange)="onPasswordChange($event)"
+                    [error]="passwordError()"
+                    [size]="100"
+                ></app-field>
+            </div>
+            <div class="col-12">
+                <app-field
+                    [label]="'Confirm Password'"
+                    [type]="'password'"
+                    [icon]="'key'"
+                    [placeholder]="'Confirm your password'"
+                    [value]="registerForm.confirmPassword().value()"
+                    (valueChange)="onConfirmPasswordChange($event)"
+                    [error]="confirmPasswordError()"
+                    [size]="100"
+                ></app-field>
+            </div>
+            <div class="col-12">
+                <app-button
+                    [label]="'Sign up'"
+                    [size]="'medium'"
+                    (click)="save()"
+                    [width]="100"
+                    [disabled]="!registerForm().valid()"
+                ></app-button>
+            </div>
+        </form>
+    </app-form>
+</div>
