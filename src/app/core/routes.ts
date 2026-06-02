@@ -9,11 +9,6 @@ export const routes: Routes = [
                 path: '',
                 loadChildren: () => import("../ideas/routes").then(m => m.routes)
             },
-            {
-                path: '',
-                pathMatch: 'full',
-                redirectTo: 'ideas'
-            }
         ],
     },
 ]
