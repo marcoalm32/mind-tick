@@ -5,4 +5,7 @@ export type ColorType = 'primary'
   | 'light'
   | 'white'
   | 'dark'
+  | 'success'
+  | 'warning'
+  | 'info'
   | 'danger';
