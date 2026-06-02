@@ -10,5 +10,7 @@
     @if (icon()) {
         <span class="material-icons">{{ icon() }}</span>
     }
-    {{ label() }}
+    @if (label()) {
+        {{ label() }}
+    }
 </button>

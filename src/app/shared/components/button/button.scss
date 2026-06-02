@@ -54,6 +54,21 @@
         border: 2px solid var(--btn-outlined-color, currentColor);
     }
 
+    &.btn-icon {
+        background-color: transparent;
+        border: none;
+        padding: 0.25rem;
+        color: var(--btn-outlined-color, currentColor);
+
+        &:hover:not(:disabled) {
+            background-color: var(--color-border);
+        }
+
+        &:disabled {
+            background-color: transparent;
+        }
+    }
+
     &:disabled {
         background-color: var(--color-border);
         color: var(--color-text-muted);
