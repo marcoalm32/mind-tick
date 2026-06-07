@@ -12,6 +12,6 @@ export class IdeaService extends ServiceAbstract<Idea>{
   constructor(
     protected override readonly http: HttpClient,
   ) {
-    super(environment.apiUrl + '/ideas', http);
+    super(environment.apiUrl + 'ideas', http);
   }
 }

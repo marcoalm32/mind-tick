@@ -9,6 +9,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { email, form, minLength, required } from '@angular/forms/signals';
 import { passwordValidator } from '../../../shared/validators/password.validator';
 import { emailValidator } from '../../../shared/validators/email.validator';
+import { RegisterPayload } from '../../models/register.payload';
+import { BaseEntity } from '../../../shared/models/crud.model';
 
 @Component({
   selector: 'app-register',
@@ -20,14 +22,16 @@ import { emailValidator } from '../../../shared/validators/email.validator';
   templateUrl: './register.html',
   styleUrl: './register.scss',
 })
-export class Register extends FormAbstract<User> {
+export class Register extends FormAbstract<RegisterPayload & BaseEntity, Auth> {
   emailStarted = signal(false);
   passwordStarted = signal(false);
   confirmPasswordStarted = signal(false);
-  model = signal<{ email: string, password: string, confirmPassword: string }>({
+  nameStarted = signal(false);
+  protected override model = signal<RegisterPayload & BaseEntity>({
     email: '',
     password: '',
     confirmPassword: '',
+    name: '',
   });
   
   registerForm = form(this.model, (path) => {
@@ -37,8 +41,11 @@ export class Register extends FormAbstract<User> {
     required(path.password, {
       message: 'Password is required'
     }),
-    required(path.confirmPassword, {
+    required(path.confirmPassword as any, {
       message: 'Confirm Password is required'
+    }),
+    required(path.name, {
+      message: 'Name is required'
     }),
     email(path.email, {
       message: 'Invalid email format'
@@ -46,14 +53,14 @@ export class Register extends FormAbstract<User> {
     minLength(path.password, 6, {
       message: 'Password must be at least 6 characters'
     }),
-    minLength(path.confirmPassword, 6, {
+    minLength(path.confirmPassword as any, 6, {
       message: 'Confirm Password must be at least 6 characters'
     })
   });
 
   emailError = emailValidator(this.registerForm.email, this.emailStarted);
   passwordError = passwordValidator(this.registerForm.password, this.passwordStarted);
-  confirmPasswordError = passwordValidator(this.registerForm.confirmPassword, this.confirmPasswordStarted);
+  confirmPasswordError = passwordValidator(this.registerForm.confirmPassword as any, this.confirmPasswordStarted);
 
   constructor(
     protected override router: Router,
@@ -65,6 +72,10 @@ export class Register extends FormAbstract<User> {
 
   protected createForm() {
     
+  }
+
+  protected isValid(): boolean {
+    return this.registerForm().valid();
   }
 
   onEmailChange(value: string): void {

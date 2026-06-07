@@ -49,7 +49,7 @@
                     [size]="'medium'"
                     (click)="save()"
                     [width]="100"
-                    [disabled]="!registerForm().valid()"
+                    [disabled]="!isValid()"
                 ></app-button>
             </div>
         </form>

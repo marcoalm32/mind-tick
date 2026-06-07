@@ -26,7 +26,8 @@
             <app-button
                 [label]="'Post'"
                 [size]="'medium'"
-                [disabled]="!ideaForm().valid()"
+                (click)="save()"
+                [disabled]="!isValid()"
             ></app-button>
         </div>
     </div>

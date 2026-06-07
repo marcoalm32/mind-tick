@@ -9,6 +9,8 @@ import { Field } from '../../../shared/components/field/field';
 import { Button } from '../../../shared/components/button/button';
 import { passwordValidator } from '../../../shared/validators/password.validator';
 import { emailValidator } from '../../../shared/validators/email.validator';
+import { LoginPayload } from '../../models/login.payload';
+import { BaseEntity } from '../../../shared/models/crud.model';
 
 @Component({
   selector: 'app-login',
@@ -20,12 +22,12 @@ import { emailValidator } from '../../../shared/validators/email.validator';
   templateUrl: './login.html',
   styleUrl: './login.scss',
 })
-export class Login extends FormAbstract<User> {
+export class Login extends FormAbstract<LoginPayload & BaseEntity, Auth> {
   emailStarted = signal(false);
   passwordStarted = signal(false);
   @Output() createAccount = new EventEmitter<number>();
 
-  model = signal<{email: string, password: string}>({
+  protected override model = signal<LoginPayload>({
     email: '',
     password: '',
   });
@@ -58,6 +60,10 @@ export class Login extends FormAbstract<User> {
 
   protected createForm() {
     console.log('Creating form');
+  }
+
+  protected isValid(): boolean {
+    return this.loginForm().valid();
   }
 
   onEmailChange(value: string): void {

@@ -10,6 +10,7 @@ import { form, maxLength, required } from '@angular/forms/signals';
 import { TextArea } from '../../../shared/components/text-area/text-area';
 import { Button } from '../../../shared/components/button/button';
 import { requiredValidator } from '../../../shared/validators/required.validator';
+import { Response } from '../../../shared/models/response.model';
 
 @Component({
   selector: 'app-post-idea',
@@ -28,7 +29,7 @@ export class PostIdea extends FormAbstract<Idea> {
   titleStarted = signal<boolean>(false);
   descriptionStarted = signal<boolean>(false);
 
-  model = signal<{title: string, description: string}>({
+  protected override model = signal<Idea>({
     title: '',
     description: '',
   });
@@ -53,8 +54,30 @@ export class PostIdea extends FormAbstract<Idea> {
     super(router, route, service);
   }
 
-  createForm() {
-    console.log('Creating form');
+  protected override createForm(): void {
+    // no-op: form is initialized declaratively above
+  }
+
+  protected override isValid(): boolean {
+    return this.ideaForm().valid();
+  }
+
+  /** Sends the new idea to the backend. Called by the submit button. */
+  protected override create(): void {
+    const subscription = this.service.create(this.model()).subscribe({
+      next: (response: Response<Idea>) => {
+        console.log('Idea created successfully', response);
+        this.model.set({
+          title: '',
+          description: '',
+        });
+        this.titleStarted.set(false);
+        this.descriptionStarted.set(false);
+      }, error: (error) => {
+        console.error('Error creating idea', error);
+      }
+    });
+    this.subscriptions.push(subscription);
   }
 
   onTitleChange(value: string): void {

@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { Badges } from '../../../shared/components/badges/badges';
 import { Button } from '../../../shared/components/button/button';
 import { Card } from '../../../shared/components/card/card';
 import { Actions } from '../../../shared/models/actions.model';
+import { Idea } from '../../models/idea.model';
 
 @Component({
   selector: 'app-idea-card',
@@ -16,7 +17,8 @@ import { Actions } from '../../../shared/models/actions.model';
 })
 export class IdeaCard {
 
-  content: string = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec suscipit auctor dui, sed efficitur enim.';
+  idea = input.required<Idea>();
+  deleteAction = output<Idea>();
   actions: Actions[] = [
     {
       id: 1,
@@ -40,7 +42,11 @@ export class IdeaCard {
       icon: 'delete ',
       variant: 'icon',
       width: 24,
-      function: () => console.log('Shared!')
+      function: () => this.deleteIdea()
     }
   ];
+
+  deleteIdea(): void {
+    this.deleteAction.emit(this.idea());
+  }
 }
