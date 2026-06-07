@@ -10,8 +10,7 @@
         align-items: center;
         gap: 0.5rem;
         padding: .2rem 1rem;
-        border: 2px solid rgba(123, 133, 140, 0.35);
-        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-elevation-0);
 
         img {
             width: 4rem;

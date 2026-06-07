@@ -3,6 +3,6 @@ import { Pagination } from "./pagination.model";
 export interface Response<T> {
     success: boolean;
     message: string;
-    data: T;
+    content: T;
     pagination?: Pagination;
 }

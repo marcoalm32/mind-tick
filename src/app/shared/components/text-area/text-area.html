@@ -1,0 +1,17 @@
+<mat-form-field 
+    class="text-area" 
+    appearance="outline"
+    [style.width.%]="size()">
+    <mat-label>{{ label() }}</mat-label>
+    @if (icon()) {
+      <mat-icon matPrefix>{{ icon() }}</mat-icon>
+    }
+    <textarea 
+        matInput 
+        [placeholder]="placeholder()" 
+        [value]="value()"
+        (input)="onInput($event)"
+        [disabled]="disabled()"
+        [rows]="rows()"
+    ></textarea>
+</mat-form-field>

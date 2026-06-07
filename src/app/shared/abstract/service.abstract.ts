@@ -1,6 +1,6 @@
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Crud, EntityBase } from "../models/crud.model";
+import { Crud, BaseEntity } from "../models/crud.model";
 import { Observable } from "rxjs";
 import { Params } from "../models/dto/params.model";
 import { Response } from "../models/response.model";
@@ -8,7 +8,7 @@ import { Response } from "../models/response.model";
 @Injectable({
   providedIn: 'root'
 })
-export abstract class ServiceAbstract<T extends EntityBase> implements Crud<T> {
+export abstract class ServiceAbstract<T extends BaseEntity> implements Crud<T> {
     constructor(
         protected readonly endpoint: string,
         protected readonly http: HttpClient
@@ -40,8 +40,8 @@ export abstract class ServiceAbstract<T extends EntityBase> implements Crud<T> {
         return this.http.put<Response<T>>(`${this.endpoint}/${id}`, entity);
     }
 
-    delete(id: number): Observable<Response<void>> {
-        return this.http.delete<Response<void>>(`${this.endpoint}/${id}`);
+    delete(entity: T): Observable<Response<void>> {
+        return this.http.delete<Response<void>>(`${this.endpoint}/${entity.id}`);
     }
 
     getByName(name: string): Observable<Response<T[]>> {

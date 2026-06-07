@@ -1,18 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { IdeaCard } from '../idea-card/idea-card';
+import { PostIdea } from '../post-idea/post-idea';
+import { Deadlines } from '../deadlines/deadlines';
 import { IdeaService } from '../../services/ideas';
-import { Subscription } from 'rxjs';
 import { Idea } from '../../models/idea.model';
 import { Params } from '../../../shared/models/dto/params.model';
 import { ListAbstract } from '../../../shared/abstract/list.abstract';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-my-ideas',
-  imports: [],
-  templateUrl: './my-ideas.html',
-  styleUrl: './my-ideas.scss',
+  selector: 'app-dashboard',
+  imports: [
+    IdeaCard,
+    PostIdea,
+    Deadlines,
+  ],
+  templateUrl: './dashboard.html',
+  styleUrl: './dashboard.scss',
 })
-export class MyIdeas extends ListAbstract<Idea> {
+export class Dashboard extends ListAbstract<Idea> {
 
   override params: Params = {
     page: 0,
@@ -25,5 +31,4 @@ export class MyIdeas extends ListAbstract<Idea> {
   ) {
     super(router, service);
   }
-
 }

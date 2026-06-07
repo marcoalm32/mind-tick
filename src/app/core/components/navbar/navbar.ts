@@ -10,7 +10,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 export class Navbar {
 
   routeList = [
-    { name: 'Dashboard', path: '/', icon: 'dashboard.svg' },
+    { name: 'Dashboard', path: '/dashboard', icon: 'dashboard.svg' },
     { name: 'My Ideas', path: '/ideas', icon: 'my-ideas.svg' },
     { name: 'Tasks', path: '/tasks', icon: 'tasks.svg' },
     { name: 'Settings', path: '/settings', icon: 'settings.svg' },

@@ -1,0 +1,18 @@
+
+<div class="row" [style.gap.rem]="2">
+    <div class="col-4">
+        <app-post-idea></app-post-idea>
+    </div>
+    <div class="col-6">
+        <h3 class="mb-3">My Idea Feed</h3>
+        @for (idea of data(); track idea.id) {
+            <app-idea-card 
+                [idea]="idea"
+                (deleteAction)="delete($event)">
+            </app-idea-card>
+        }
+    </div>
+    <!-- <div class="col-3">
+        <app-deadlines></app-deadlines>
+    </div> -->
+</div>

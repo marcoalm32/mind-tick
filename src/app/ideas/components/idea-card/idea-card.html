@@ -1,0 +1,32 @@
+<app-card
+    [title]="idea().title || 'Untitled Idea'"
+    [listActions]="actions"
+    >
+    <div class="header-content d-flex align-items-center gap-1">
+        <app-badges 
+            [text]="'Listed'"
+            [colorType]="'success'"
+            [size]="'medium'">
+        </app-badges>
+        <app-button 
+            [variant]="'icon'"
+            [label]="''"
+            [icon]="'more_vert'">
+        </app-button>
+    </div>
+    <div class="card-content">
+        <p class="text-body">{{ idea().description || 'No content available' }}</p>
+    </div>
+    <div class="d-flex align-items-center gap-1 footer-interactions">
+        <app-button
+            [variant]="'icon'"
+            [label]="'3'"
+            [icon]="'favorite_border'">
+        </app-button>
+        <app-button
+            [variant]="'icon'"
+            [label]="''"
+            [icon]="'chat_bubble_outline'">
+        </app-button>
+    </div>
+</app-card>

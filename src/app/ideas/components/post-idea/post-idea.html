@@ -1,0 +1,34 @@
+<app-card
+    [title]="'Post Your Idea'"
+>
+    <div class="card-content">
+        <app-form [title]="''" [size]="100">
+            <form>
+                <app-field
+                    [label]="'Title'"
+                    [placeholder]="'Enter the title of your idea'"
+                    [size]="100"
+                    [value]="ideaForm.title().value()"
+                    (valueChange)="onTitleChange($event)"
+                    [error]="titleError()"
+                ></app-field>
+                <app-text-area
+                    [label]="'Description'"
+                    [placeholder]="'Describe your idea in detail'"
+                    [value]="ideaForm.description().value()"
+                    (valueChange)="onDescriptionChange($event)"
+                    [rows]="5"
+                    [error]="descriptionError()"
+                ></app-text-area>
+            </form>
+        </app-form>
+        <div class="footer-interactions">
+            <app-button
+                [label]="'Post'"
+                [size]="'medium'"
+                (click)="save()"
+                [disabled]="!isValid()"
+            ></app-button>
+        </div>
+    </div>
+</app-card>

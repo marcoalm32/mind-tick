@@ -1,19 +1,23 @@
-import { Directive, Inject, InjectionToken, OnDestroy, OnInit, signal } from "@angular/core";
+import { Directive, Inject, InjectionToken, OnDestroy, OnInit, WritableSignal } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
-import { Observable, Subscription } from "rxjs";
+import { Subscription } from "rxjs";
+import { Crud, BaseEntity } from "../models/crud.model";
 
-const SERVICE_MODEL = new InjectionToken('SERVICE_MODEL');
 @Directive()
-export abstract class FormAbstract<T> implements OnInit, OnDestroy {
+export abstract class FormAbstract<
+    T extends BaseEntity,
+    S = Crud<T>
+> implements OnInit, OnDestroy {
     
     protected subscriptions: Subscription[] = [];
     protected data: T | T[] | null = null;
     protected editMode = false;
+    protected abstract model: WritableSignal<T>;
 
     constructor(
         protected readonly router: Router,
         protected readonly route: ActivatedRoute,
-        @Inject(SERVICE_MODEL) protected readonly service: any
+        protected readonly service: S
     ) {}
 
     ngOnInit(): void {
@@ -25,8 +29,13 @@ export abstract class FormAbstract<T> implements OnInit, OnDestroy {
     }
 
     protected abstract createForm(): void;
-    
-    protected save(): void {
+
+    protected abstract isValid(): boolean;
+
+    save(): void {
+        if (!this.isValid()) {
+            return;
+        }
         if (this.editMode) {
             this.update();
         } else {
@@ -34,11 +43,13 @@ export abstract class FormAbstract<T> implements OnInit, OnDestroy {
         }
     }
 
-    protected create() {
-
+    protected create(): void {
+        if (this.model()) {
+            // Implement create logic here
+        }
     }
 
-    protected update() {
+    protected update(): void {
 
     }
 
