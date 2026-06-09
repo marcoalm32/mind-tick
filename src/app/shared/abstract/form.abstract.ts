@@ -6,7 +6,8 @@ import { Crud, BaseEntity } from "../models/crud.model";
 @Directive()
 export abstract class FormAbstract<
     T extends BaseEntity,
-    S = Crud<T>
+    E extends BaseEntity = T,
+    S extends Crud<E> = Crud<E>
 > implements OnInit, OnDestroy {
     
     protected subscriptions: Subscription[] = [];
@@ -22,6 +23,12 @@ export abstract class FormAbstract<
 
     ngOnInit(): void {
         this.createForm();
+        this.identifyForm();
+    }
+
+    protected identifyForm(): void {
+        const id = this.route.snapshot.paramMap.get("id");
+        this.editMode = !!id;
     }
 
     ngOnDestroy(): void {
@@ -43,14 +50,28 @@ export abstract class FormAbstract<
         }
     }
 
+    protected cancel(): void {
+        this.router.navigate(['..'], { relativeTo: this.route });
+    }
+
     protected create(): void {
-        if (this.model()) {
-            // Implement create logic here
-        }
+        const subscription = this.service.create(this.toEntity(this.model())).subscribe({
+            next: () => {
+                this.router.navigate(['..'], { relativeTo: this.route });
+            },
+            error: (err: any) => {
+                console.error('Error creating entity:', err)
+            }
+        });
+        this.subscriptions.push(subscription);
     }
 
     protected update(): void {
 
+    }
+
+    protected toEntity(model: T): E {
+        return model as unknown as E;
     }
 
 }

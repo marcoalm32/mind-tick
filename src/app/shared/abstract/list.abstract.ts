@@ -35,7 +35,6 @@ export abstract class ListAbstract<
     }
 
     protected delete(item: T): void {
-        console.log('Deleting item', item);
         if (item.id == null) {
             return;
         }

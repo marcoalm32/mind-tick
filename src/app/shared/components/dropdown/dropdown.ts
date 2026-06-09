@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, model } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { Appearance } from '../../types/appearance';
@@ -21,4 +21,16 @@ export class Dropdown {
   placeholder = input<string>('');
   options = input<OptionsDropdown[]>([]);
   multiple = input<boolean>(false);
+  size = input<number>(100);
+
+  value = model<string | string[]>('');
+  multipleValue = model<string[]>([]);
+
+  onSelectionChange(value: string ): void {
+    if (this.multiple()) {
+      this.multipleValue.set([...this.multipleValue(), value]);
+    } else {
+      this.value.set(value);
+    }
+  }
 }

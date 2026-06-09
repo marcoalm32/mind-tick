@@ -28,6 +28,12 @@
         color: var(--color-text-inverse);
     }
 
+    &.btn-warning {
+        --btn-outlined-color: var(--color-warning);
+        background-color: var(--color-warning);
+        color: var(--color-text-inverse);
+    }
+
     &.btn-very-small {
         padding: 0.15rem 0.35rem;
         font-size: 11px;

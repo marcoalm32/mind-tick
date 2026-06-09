@@ -20,11 +20,7 @@ import { Router } from '@angular/router';
 })
 export class Dashboard extends ListAbstract<Idea> {
 
-  override params: Params = {
-    page: 0,
-    pageSize: 10,
-    search: '',
-  }
+  override params: Params = new Params();
   constructor(
     protected override readonly router: Router,
     protected override readonly service: IdeaService,
