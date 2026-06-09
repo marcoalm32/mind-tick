@@ -7,7 +7,7 @@ import { environment } from '../../../environments/environment';
 @Injectable({
   providedIn: 'root',
 })
-export class Auth extends ServiceAbstract<User> {
+export class AuthService extends ServiceAbstract<User> {
 
   constructor(
     protected override readonly http: HttpClient

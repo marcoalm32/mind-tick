@@ -1,8 +1,6 @@
 import { Component, computed, EventEmitter, Output, signal } from '@angular/core';
-import { User } from '../../models/user.model';
 import { FormAbstract } from '../../../shared/abstract/form.abstract';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Auth } from '../../services/auth';
 import { email, form, minLength, required } from '@angular/forms/signals';
 import { Form } from '../../../shared/components/form/form';
 import { Field } from '../../../shared/components/field/field';
@@ -11,6 +9,7 @@ import { passwordValidator } from '../../../shared/validators/password.validator
 import { emailValidator } from '../../../shared/validators/email.validator';
 import { LoginPayload } from '../../models/login.payload';
 import { BaseEntity } from '../../../shared/models/crud.model';
+import { AuthService } from '../../services/auth';
 
 @Component({
   selector: 'app-login',
@@ -22,7 +21,7 @@ import { BaseEntity } from '../../../shared/models/crud.model';
   templateUrl: './login.html',
   styleUrl: './login.scss',
 })
-export class Login extends FormAbstract<LoginPayload & BaseEntity, Auth> {
+export class Login extends FormAbstract<LoginPayload> {
   emailStarted = signal(false);
   passwordStarted = signal(false);
   @Output() createAccount = new EventEmitter<number>();
@@ -53,7 +52,7 @@ export class Login extends FormAbstract<LoginPayload & BaseEntity, Auth> {
   constructor(
     protected override router: Router,
     protected override route: ActivatedRoute,
-    protected override service: Auth,
+    protected override service: AuthService,
   ) {
     super(router, route, service);
   }
