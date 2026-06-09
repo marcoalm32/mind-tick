@@ -31,8 +31,11 @@
 
         &-user {
             width: rem;
-            height: 3.5rem;
+            height: 4.6rem;
             cursor: pointer;
+            background-size: cover;
+            background-position: center;
+            border-radius: var(--radius-pill);
         }
     }
 }

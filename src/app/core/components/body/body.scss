@@ -1,0 +1,10 @@
+:host {
+    display: block;
+    height: 100%;
+    padding: 1rem;
+}
+
+.body {
+    overflow-y: auto;
+    max-height: calc(100vh - 4rem); /* Ajuste para considerar o header */
+}

@@ -1,7 +1,12 @@
+:host {
+    display: block;
+    height: 100%;
+}
+
 .navbar {
     background-color: var(--color-surface);
     padding: 1rem;
-    height: 80vh;
+    height: 100%;
     margin-top: -.99rem;
 
     .nav-list {
