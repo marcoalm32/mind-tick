@@ -1,0 +1,1 @@
+export type fieldChange = 'name' | 'detail'| 'status' | 'priority';

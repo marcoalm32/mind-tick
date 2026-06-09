@@ -1,0 +1,75 @@
+<app-card
+    [title]="editMode ? 'Edit Task' : 'Create Task'"
+    [size]="70"
+>
+    <div class="card-content">
+        <app-form [title]="''" [size]="80">
+            <form class="row">
+                <div class="col-12">
+                    <app-field
+                        [label]="'Name'"
+                        [size]="100"
+                        [placeholder]="'Enter the name of the task'"
+                        [value]="taskForm.name().value()"
+                        (valueChange)="onFieldChange('name', $event)"
+                        [error]="nameError()"
+                    ></app-field>
+                </div>
+                <div class="col-12">
+                    <app-text-area
+                        [label]="'Detail'"
+                        [size]="100"
+                        [placeholder]="'Describe the task in detail'"
+                        [value]="taskForm.detail().value()"
+                        (valueChange)="onFieldChange('detail', $event)"
+                        [error]="detailError()"
+                    ></app-text-area>
+                </div>
+                <div class="col-6">
+                    <app-date-field
+                        [size]="100"
+                        [label]="'Deadline'"
+                        [placeholder]="'Select a deadline for your task'"
+                        [value]="taskForm.deadline?.()?.value() || ''"
+                        (valueChange)="onDateChange($event)"
+                    ></app-date-field>
+                </div>
+                <div class="col-6">
+                    <app-dropdown
+                        [label]="'Status'"
+                        [size]="100"
+                        [placeholder]="'Select the status of your task'"
+                        [options]="statusOptions"
+                        [multiple]="false"
+                        [value]="taskForm.status().value()"
+                        (valueChange)="onFieldChange('status', $event)"
+                    ></app-dropdown>
+                </div>
+                <div class="col-6">
+                    <app-dropdown
+                        [label]="'Priority'"
+                        [size]="100"
+                        [placeholder]="'Select the priority of your task'"
+                        [options]="priorityOptions"
+                        [multiple]="false"
+                        [value]="taskForm.priority().value()"
+                        (valueChange)="onFieldChange('priority', $event)"
+                    ></app-dropdown>
+                </div>
+                <div class="d-flex justify-space-around col-6">
+                    <app-button
+                        (onClick)="save()"
+                        [label]="'Save'"
+                        [width]="100"
+                    ></app-button>
+                    <app-button
+                        (onClick)="cancel()"
+                        [label]="'Cancel'"
+                        [width]="100"
+                        [color]="'warning'"
+                    ></app-button>
+                </div>
+            </form>
+        </app-form>
+    </div>
+</app-card>

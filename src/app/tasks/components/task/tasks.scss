@@ -1,0 +1,13 @@
+.tasks {
+    width: 95%;
+    min-height: 25vh;
+    padding: var(--space-2);
+    background-color: var(--color-surface);
+    border-radius: var(--radius-md);
+    box-sizing: border-box;
+
+    &__list {
+        width: auto;
+        margin-bottom: var(--space-2);
+    }
+}

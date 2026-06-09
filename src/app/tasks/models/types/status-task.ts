@@ -1,0 +1,1 @@
+export type StatusTask = "PENDING" | "DOING" | "DONE" | "CANCELED";

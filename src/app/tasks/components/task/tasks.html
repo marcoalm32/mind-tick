@@ -1,0 +1,16 @@
+<div class="tasks">
+    <h2 class="text-section-title">My Task List</h2>
+    <div class="tasks__list">
+        @for (task of data(); track task.id) {
+            <app-task-card
+                [task]="task"
+            ></app-task-card>
+        }
+    </div>
+    <div class="d-flex justify-end align-center">
+        <app-button
+            [label]="'Create New Task'"
+            (onClick)="navigateNewTask()"
+        ></app-button>
+    </div>
+</div>

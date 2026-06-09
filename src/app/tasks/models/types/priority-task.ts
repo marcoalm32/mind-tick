@@ -1,0 +1,1 @@
+export type PriorityTask = "LOW" | "MEDIUM" | "HIGH" | "CRITICAL";
