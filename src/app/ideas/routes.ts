@@ -7,7 +7,7 @@ export const routes: Routes = [
         redirectTo: 'ideas'
     },
     {
-        path: 'ideas',
+        path: '',
         loadComponent: () => import('./components/my-ideas/my-ideas').then(m => m.MyIdeas)
     },
     {
