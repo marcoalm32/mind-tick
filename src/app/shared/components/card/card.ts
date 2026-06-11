@@ -16,6 +16,7 @@ export class Card {
 
   title = input<string>('Card Title');
   size = input<number>(100);
+  hasFooter = input<boolean>(true);
 
   listActions = input<Actions[]>([]);
 

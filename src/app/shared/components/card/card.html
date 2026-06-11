@@ -8,19 +8,21 @@
     <div class="card__content">
         <ng-content select=".card-content"></ng-content>
     </div>
-    <div class="card__footer">
-        <div class="card__footer-interactions">
-            <ng-content select=".footer-interactions"></ng-content>
+    @if (hasFooter()) {
+        <div class="card__footer">
+            <div class="card__footer-interactions">
+                <ng-content select=".footer-interactions"></ng-content>
+            </div>
+            <div class="card__footer-actions">
+                @for (action of listActions(); track action.id) {
+                    <app-button
+                        [variant]="action.variant || 'text'"
+                        [label]="action.label"
+                        [icon]="action.icon"
+                        (click)="action.function()">
+                    </app-button>
+                }
+            </div>
         </div>
-        <div class="card__footer-actions">
-            @for (action of listActions(); track action.id) {
-                <app-button
-                    [variant]="action.variant || 'text'"
-                    [label]="action.label"
-                    [icon]="action.icon"
-                    (click)="action.function()">
-                </app-button>
-            }
-        </div>
-    </div>
+    }
 </div>
