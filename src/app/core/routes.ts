@@ -12,7 +12,7 @@ export const routes: Routes = [
         children: [
             {
                 path: '',
-                loadChildren: () => import("../ideas/routes").then(m => m.routes)
+                loadChildren: () => import("../features/ideas/routes").then(m => m.routes)
             },
         ],
     },
@@ -22,7 +22,7 @@ export const routes: Routes = [
         children: [
             {
                 path: '',
-                loadChildren: () => import("../tasks/routes").then(m => m.routes)
+                loadChildren: () => import("../features/tasks/routes").then(m => m.routes)
             },
         ],
     }

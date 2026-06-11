@@ -5,6 +5,7 @@
 }
 
 .body {
+    position: relative;
     overflow-y: auto;
-    max-height: calc(100vh - 4rem); /* Ajuste para considerar o header */
+    max-height: calc(100vh - 4rem);
 }

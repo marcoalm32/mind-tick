@@ -1,0 +1,14 @@
+:host {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    pointer-events: all;
+}
+
+mat-progress-bar {
+    width: min(420px, 60vw);
+}
