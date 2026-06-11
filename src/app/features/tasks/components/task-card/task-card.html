@@ -1,0 +1,25 @@
+<div class="task-card">
+    <app-card
+        [title]="'Task ' + (index() + 1) + ': ' + task().name"
+        [size]="100"
+        [hasFooter]="false"
+    >
+        <div class="header-content">
+            <app-badges
+                [text]="task().priority"
+                [colorType]="setBadgeColor(task().priority)"
+                [size]="'medium'"
+            ></app-badges>
+            <app-badges
+                [text]="task().status"
+                style="margin-left: 8px;"
+                [colorType]="setBadgeColor(task().status)"
+                [size]="'medium'"
+            ></app-badges>
+        </div>
+        <div class="card-content">
+            <p class="text-body">{{ task().detail }}</p>
+            <p class="text-body-strong">Validate to: {{ task().deadline | date }}</p>
+        </div>
+    </app-card>
+</div>
